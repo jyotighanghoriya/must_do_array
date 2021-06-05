@@ -19,7 +19,7 @@
 # You don't need to read input or print anything. Your task is to complete the function countTriplet() which takes the array arr[] and N as inputs and returns the triplet count
 
 # O(n^2):
-Solution 1:
+Solution 1: 
   class Solution:
 	def countTriplet(self, arr, n):
 		# code here
@@ -33,6 +33,26 @@ Solution 1:
 		        except ValueError as v:
 		            pass
         return triplet_count
-Error : timeout error
+# Error : timeout error
+# Here the time complexity of algorithm cant be improved only the space complexity can be improved
+# Why are we getting timeout error is because we are using search function multiple times to search for the element, a better solution would be to use an array to keep
+# track whether the element exist or not. 
   
   Solution 2:
+	class Solution:
+	def countTriplet(self, arr, n):
+		# code here
+		arr.sort()
+		triplet_count=0
+		dict={}
+		for i in arr:
+		    dict[i]=1
+# 		print(arr)
+        for i in range(0,len(arr)):
+		    for j in range(i+1,len(arr)):
+		        try:
+		            if dict[arr[i]+arr[j]]==1:
+		                triplet_count=triplet_count+1
+		        except KeyError as v:
+		            pass
+        return triplet_count

@@ -1,5 +1,6 @@
 # Rearrange array alternatively:
-# concept is very simple: keep two pointers and keep and auxilary array until small<=large. All test cases are passes in below code. 
+# concept is very simple: keep two pointers and keep and auxilary array until small<=large. All test cases are passes in below code. Better solution check on gfg.
+
 #User function Template for python3
 class Solution:
     ##Complete this function

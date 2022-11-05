@@ -1,3 +1,33 @@
+python code :
+class Solution:
+    def trappingWater(self, arr,n):
+        left=[]
+        right=[]
+        left.append(0)
+        for i in range(1,len(arr)):
+            left.append(max(left[i-1],arr[i-1]))
+        # print(left)
+        right.append(0)
+        count=0
+        for i in range(len(arr)-1,0,-1):
+            right.append(max(right[count],arr[i]))
+            count=count+1
+        right.reverse()
+        # print("right",right)
+        out=[]
+        for i in range(len(left)):
+            if (min(left[i],right[i])-arr[i])<0:
+                out.append(0)
+            else:
+                out.append((min(left[i],right[i])-arr[i]))
+        res=0
+        for i in out:
+            res=res+i
+        return res
+Logic is very simple:
+you are given the boxes that are present now when its raining the rain water will filled between those boxes. Now if the water is getting stored between 
+boxes then amount of water stored between boxes will be equal to the max of left height, max of right height and min of maxleft height and maxright height - height of current block
+
 using namespace std;
 int findWater(int arr[], int n) 
 { 
